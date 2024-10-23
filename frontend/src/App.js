@@ -1,10 +1,9 @@
-// frontend/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './SignIn';
 import WorshipTeams from './pages/WorshipTeams/WorshipTeamsPage';
-import Setlists from './pages/Setlists/SetlistsPage';
-import Schedules from './pages/Schedules/SchedulesPage';
+import Setlists from './pages/Setlist/SetlistPage';
+import Schedules from './pages/Schedule/SchedulePage';
 import Members from './pages/Members/MembersPage';
 
 const App = () => {
@@ -21,13 +20,13 @@ const App = () => {
             <li><Link to="/members">Members</Link></li>
           </ul>
         </nav>
-        <Switch>
-          <Route path="/signin" component={SignIn} />
-          <Route path="/worship-teams" component={WorshipTeams} />
-          <Route path="/setlists" component={Setlists} />
-          <Route path="/schedules" component={Schedules} />
-          <Route path="/members" component={Members} />
-        </Switch>
+        <Routes>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/worship-teams" element={<WorshipTeams />} />
+          <Route path="/setlists" element={<Setlists />} />
+          <Route path="/schedules" element={<Schedules />} />
+          <Route path="/members" element={<Members />} />
+        </Routes>
       </div>
     </Router>
   );
