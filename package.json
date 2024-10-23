@@ -2,11 +2,18 @@
     "name": "worship-ministry-app",
     "version": "1.0.0",
     "scripts": {
-      "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-      "start:backend": "cd backend && npm start",
-      "start:frontend": "cd frontend && npm start"
+        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+        "start:backend": "cd backend && npm start",
+        "start:frontend": "cd frontend && npm start",
+        "lint": "eslint 'frontend/src/**/*.{js,jsx}'",
+        "lint:fix": "eslint 'frontend/src/**/*.{js,jsx}' --fix"
     },
     "devDependencies": {
-      "concurrently": "^7.0.0"
+        "@eslint/js": "^9.13.0",
+        "concurrently": "^7.0.0",
+        "eslint": "^9.13.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-react": "^7.37.2",
+        "globals": "^15.11.0"
     }
-  }
+}

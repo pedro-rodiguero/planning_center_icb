@@ -5,7 +5,6 @@ import WorshipTeams from './pages/WorshipTeams/WorshipTeamsPage';
 import Setlists from './pages/Setlist/SetlistPage';
 import Schedules from './pages/Schedule/SchedulePage';
 import Members from './pages/Members/MembersPage';
-
 const App = () => {
   return (
     <Router>
