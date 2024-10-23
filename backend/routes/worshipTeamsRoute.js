@@ -1,15 +1,18 @@
 const express = require('express');
-const WorshipTeam = require('../models/WorshipTeamModel');
+const admin = require('firebase-admin');
 
 const router = express.Router();
+const db = admin.firestore();
 
 // Create worship team
 router.post('/', async (req, res) => {
   const { name, members } = req.body;
   try {
-    const worshipTeam = new WorshipTeam({ name, members });
-    await worshipTeam.save();
-    res.status(201).json(worshipTeam);
+    console.log('Creating worship team:', { name, members }); // Add logging
+    const worshipTeamRef = db.collection('worshipTeams').doc();
+    await worshipTeamRef.set({ name, members });
+    const worshipTeam = await worshipTeamRef.get();
+    res.status(201).json({ id: worshipTeam.id, ...worshipTeam.data() });
   } catch (err) {
     console.error(err); // Log the error details
     res.status(500).send('Server error');
@@ -19,7 +22,8 @@ router.post('/', async (req, res) => {
 // Read worship teams
 router.get('/', async (req, res) => {
   try {
-    const worshipTeams = await WorshipTeam.find().populate('members');
+    const worshipTeamsSnapshot = await db.collection('worshipTeams').get();
+    const worshipTeams = worshipTeamsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     res.json(worshipTeams);
   } catch (err) {
     console.error(err); // Log the error details
@@ -31,8 +35,10 @@ router.get('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   const { name, members } = req.body;
   try {
-    const worshipTeam = await WorshipTeam.findByIdAndUpdate(req.params.id, { name, members }, { new: true });
-    res.json(worshipTeam);
+    const worshipTeamRef = db.collection('worshipTeams').doc(req.params.id);
+    await worshipTeamRef.update({ name, members });
+    const worshipTeam = await worshipTeamRef.get();
+    res.json({ id: worshipTeam.id, ...worshipTeam.data() });
   } catch (err) {
     console.error(err); // Log the error details
     res.status(500).send('Server error');
@@ -42,7 +48,7 @@ router.put('/:id', async (req, res) => {
 // Delete worship team
 router.delete('/:id', async (req, res) => {
   try {
-    await WorshipTeam.findByIdAndDelete(req.params.id);
+    await db.collection('worshipTeams').doc(req.params.id).delete();
     res.json({ msg: 'Worship team deleted' });
   } catch (err) {
     console.error(err); // Log the error details

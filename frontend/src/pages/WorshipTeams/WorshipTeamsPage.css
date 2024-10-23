@@ -1,0 +1,54 @@
+.worship-teams-page {
+  padding: 20px;
+}
+
+.worship-teams-page h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.worship-teams-page input {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.worship-teams-page button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+}
+
+.team-list li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.team-list li.selected {
+  background-color: #e0e0e0;
+}
+
+.team-list li button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.team-details {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.team-details h2 {
+  margin-top: 0;
+}

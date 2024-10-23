@@ -1,5 +1,5 @@
 const express = require('express');
-const Setlist = require('../models/Setlist');
+const Setlist = require('../models/SetlistModel');
 
 const router = express.Router();
 
