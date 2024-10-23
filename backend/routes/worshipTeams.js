@@ -11,6 +11,7 @@ router.post('/', async (req, res) => {
     await worshipTeam.save();
     res.status(201).json(worshipTeam);
   } catch (err) {
+    console.error(err); // Log the error details
     res.status(500).send('Server error');
   }
 });
@@ -21,6 +22,7 @@ router.get('/', async (req, res) => {
     const worshipTeams = await WorshipTeam.find().populate('members');
     res.json(worshipTeams);
   } catch (err) {
+    console.error(err); // Log the error details
     res.status(500).send('Server error');
   }
 });
@@ -32,6 +34,7 @@ router.put('/:id', async (req, res) => {
     const worshipTeam = await WorshipTeam.findByIdAndUpdate(req.params.id, { name, members }, { new: true });
     res.json(worshipTeam);
   } catch (err) {
+    console.error(err); // Log the error details
     res.status(500).send('Server error');
   }
 });
@@ -42,6 +45,7 @@ router.delete('/:id', async (req, res) => {
     await WorshipTeam.findByIdAndDelete(req.params.id);
     res.json({ msg: 'Worship team deleted' });
   } catch (err) {
+    console.error(err); // Log the error details
     res.status(500).send('Server error');
   }
 });

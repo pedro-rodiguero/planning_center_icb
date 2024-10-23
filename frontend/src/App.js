@@ -1,6 +1,6 @@
 import React from 'react';
 import SignIn from './SignIn';
-import WorshipTeams from './WorshipTeams';
+import WorshipTeams from './pages/WorshipTeams/WorshipTeams';
 
 const App = () => {
   return (
