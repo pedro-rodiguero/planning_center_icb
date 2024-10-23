@@ -1,3 +1,4 @@
+// backend/server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -19,7 +20,10 @@ const db = admin.firestore();
 
 // Define routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/worship-teams', require('./routes/worshipTeams'));
+app.use('/api/worship-teams', require('./routes/worshipTeamsRoute'));
+app.use('/api/setlists', require('./routes/setlistsRoute'));
+app.use('/api/schedules', require('./routes/schedulesRoute'));
+app.use('/api/members', require('./routes/membersRoute'));
 
 app.get('/', (req, res) => res.send('API Running'));
 
