@@ -19,6 +19,7 @@ const db = admin.firestore();
 
 // Define routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/worship-teams', require('./routes/worshipTeams'));
 
 app.get('/', (req, res) => res.send('API Running'));
 
