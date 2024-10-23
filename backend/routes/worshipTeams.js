@@ -1,5 +1,5 @@
 const express = require('express');
-const WorshipTeam = require('../models/WorshipTeam');
+const WorshipTeam = require('../models/WorshipTeamModel');
 
 const router = express.Router();
 
