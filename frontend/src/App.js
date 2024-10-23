@@ -6,6 +6,7 @@ import Setlists from './pages/Setlist/SetlistPage';
 import Schedules from './pages/Schedule/SchedulePage';
 import Members from './pages/Members/MembersPage';
 import Header from './components/Header';
+import './global.css';
 
 const App = () => {
   return (

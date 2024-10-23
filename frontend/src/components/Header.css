@@ -1,9 +1,12 @@
+/* frontend/src/components/Header.css */
 .header {
-  background-color: #f8f9fa;
+  background-color: #a3cef1; /* Updated background color */
   padding: 10px 20px;
+  width: 100%; /* Ensure the header spans the full width */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center; /* Center items vertically */
+  font-family: 'Playfair Display', serif;
 }
 
 .nav {
@@ -24,7 +27,8 @@
 
 .nav-item a {
   text-decoration: none;
-  color: #000;
+  color: #ffffff; /* Updated text color for better contrast */
+  font-size: 18px;
 }
 
 .account-dropdown {
